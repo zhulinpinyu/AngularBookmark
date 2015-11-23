@@ -77,6 +77,10 @@ angular.module('Eggly',[])
      $scope.editedBookmark = angular.copy(bookmark);
    }
 
+   $scope.isSelectedBookmark = function(bookmarkId){
+     return $scope.editedBookmark !== null && $scope.editedBookmark.id === bookmarkId
+   }
+
    $scope.updateBookmark = function(bookmark){
      var index = _.findIndex($scope.bookmarks,function(b){
        return b.id === bookmark.id
@@ -84,6 +88,12 @@ angular.module('Eggly',[])
      $scope.bookmarks[index] = bookmark;
      $scope.editedBookmark = null;
      $scope.isEditing = false;
+   }
+
+   $scope.removeBookmark = function(bookmark){
+     _.remove($scope.bookmarks, function(b){
+       return b.id === bookmark.id;
+     });
    }
 
  });
