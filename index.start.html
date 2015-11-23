@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html ng-app>
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width">
@@ -23,6 +23,10 @@
                     </ul>
                 </div>
                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                    <div ng-init="hello='world'">
+                      <h2>{{hello}}</h2>
+                      <input type="text" ng-model="hello">
+                    </div>
                     <div>
                         <button type="button" class="close">&times;</button>
                         <button type="button" class="btn btn-link"><span class="glyphicon glyphicon-pencil"></span></button>
@@ -43,8 +47,9 @@
             </div>
         </div>
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="vendor/jquery-1.11.0.min.js"></script>
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
+        <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script> -->
+        <script src="vendor/angular-1.4.8.min.js"></script>
     </body>
 </html>
