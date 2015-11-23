@@ -38,6 +38,7 @@ angular.module('Eggly',[])
 
    $scope.cancelCreating = function(){
      $scope.isCreating = false;
+     resetForm();
    }
 
    $scope.startEditing = function(){
@@ -55,6 +56,20 @@ angular.module('Eggly',[])
 
    $scope.shouldShowEditing = function(){
      return $scope.isEditing && !$scope.isCreating
+   }
+
+   function resetForm(){
+     $scope.newBookmark = {
+       title: '',
+       url: '',
+       category: $scope.currentCategory.name
+     };
+   }
+
+   $scope.createBookmark = function(bookmark){
+     bookmark.id = $scope.bookmarks.length;
+     $scope.bookmarks.push(bookmark);
+     resetForm();
    }
 
  });
