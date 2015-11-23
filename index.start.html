@@ -29,7 +29,7 @@
                         <a href="{{bookmark.url}}" target="_blank">{{bookmark.title}}</a>
                     </div>
                     <hr/>
-                    <div ng-if="shouldShowCreating()">
+                    <div ng-show="shouldShowCreating()">
                       <button type="button" class="btn btn-link" ng-click="startCreating()">
                         <span class="glyphicon glyphicon-plus"></span>
                         Create Bookmark
@@ -47,7 +47,7 @@
                         <button type="button" class="btn btn-default btn-lg pull-right" ng-click="cancelCreating()" >Cancel</button>
                       </form>
                     </div>
-                    <div ng-if="shouldShowEditing()">
+                    <div ng-show="shouldShowEditing()">
                       Edit {{editedBookmark.title}}
                       <form class="create-form" ng-show="isEditing" ng-submit="updateBookmark(editedBookmark)" role="form" novalidate>
                         <div class="form-group">
