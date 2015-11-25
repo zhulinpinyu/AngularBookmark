@@ -14,5 +14,7 @@ angular.module('categories',[
     });
 }).controller('CategoriesCtrl',function(Category){
   var categoriesCtrl = this;
-  categoriesCtrl.categories = Category.getCategories();
+  Category.getCategories().then(function(result){
+    categoriesCtrl.categories = result;
+  });
 });
