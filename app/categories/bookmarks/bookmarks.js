@@ -15,7 +15,8 @@ angular.module('categories.bookmarks',[
         }
       }
     })
-}).controller('BookmarksCtrl',function($stateParams){
+}).controller('BookmarksCtrl',function($stateParams, Bookmark){
   var bookmarksCtrl = this;
   bookmarksCtrl.currentCategoryName = $stateParams.category;
+  bookmarksCtrl.bookmarks = Bookmark.getBookmarks();
 });

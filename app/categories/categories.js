@@ -7,12 +7,12 @@ angular.module('categories',[
       views: {
         'categories@': {
           controller: 'CategoriesCtrl',
+          controllerAs: 'categoriesCtrl',
           templateUrl: 'app/categories/categories.tmpl.html'
-        },
-        'bookmarks@': {
-          controller: 'BookmarksCtrl',
-          templateUrl: 'app/categories/bookmarks/bookmarks.tmpl.html'
         }
       }
     });
-}).controller('CategoriesCtrl',function($scope){});
+}).controller('CategoriesCtrl',function(Category){
+  var categoriesCtrl = this;
+  categoriesCtrl.categories = Category.getCategories();
+});
