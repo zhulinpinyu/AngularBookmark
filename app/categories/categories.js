@@ -9,6 +9,11 @@ angular.module('categories',[
           controller: 'CategoriesCtrl',
           controllerAs: 'categoriesCtrl',
           templateUrl: 'app/categories/categories.tmpl.html'
+        },
+        'bookmarks@': {
+          templateUrl: 'app/categories/bookmarks/bookmarks.tmpl.html',
+          controller: 'BookmarksCtrl',
+          controllerAs: 'bookmarksCtrl'
         }
       }
     });

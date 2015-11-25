@@ -15,10 +15,12 @@ angular.module('categories.bookmarks',[
         }
       }
     })
-}).controller('BookmarksCtrl',function($stateParams, Bookmark){
+}).controller('BookmarksCtrl',function($stateParams, Category, Bookmark){
   var bookmarksCtrl = this;
-  bookmarksCtrl.currentCategoryName = $stateParams.category;
+  Category.setCurrentCategory($stateParams.category);
   Bookmark.getBookmarks().then(function(result){
     bookmarksCtrl.bookmarks = result;
   });
+  bookmarksCtrl.getCurrentCategoryName = Category.getCurrentCategoryName;
+  bookmarksCtrl.getCurrentCategory = Category.getCurrentCategory;
 });

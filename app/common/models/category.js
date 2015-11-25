@@ -3,7 +3,8 @@ angular.module('eggly.models.category',[])
    var URL = {
      FETCH: 'data/categories.json'
    },
-   categories;
+   categories,
+   currentCategory;
 
    var extract = function(result){
      return result.data
@@ -28,11 +29,22 @@ angular.module('eggly.models.category',[])
        if(categories){
          deferred.resolve(findCategory());
        }else{
-         getCategories.then(function(result){
+         this.getCategories().then(function(result){
            deferred.resolve(findCategory());
          });
        };
        return deferred.promise;
+     },
+     setCurrentCategory: function(categoryName){
+       this.getCategoryByName(categoryName).then(function(category){
+         currentCategory = category;
+       });
+     },
+     getCurrentCategory: function(){
+       return currentCategory;
+     },
+     getCurrentCategoryName: function(){
+       return currentCategory ? currentCategory.name : '';
      }
    }
  });
