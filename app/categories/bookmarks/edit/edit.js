@@ -7,6 +7,28 @@ angular.module('categories.bookmarks.edit',[
     controller: 'EditBookmarkCtrl',
     controllerAs: 'editBookmarkCtrl'
   });
-}).controller('EditBookmarkCtrl', function(){
+}).controller('EditBookmarkCtrl', function($state,$stateParams,Bookmark){
+  var editBookmarkCtrl = this;
+  function returnToBookmarks(){
+    $state.go('eggly.categories.bookmarks',{category: $stateParams.category});
+  }
 
+  editBookmarkCtrl.cancelEditing = function(){
+    returnToBookmarks();
+  }
+
+  Bookmark.findBookmarkById($stateParams.bookmarkId).then(function(bookmark){
+    if(bookmark){
+      editBookmarkCtrl.bookmark = bookmark;
+      editBookmarkCtrl.editedBookmark = angular.copy(editBookmarkCtrl.bookmark);
+    }else{
+      returnToBookmarks();
+    }
+  });
+
+  editBookmarkCtrl.updateBookmark = function(){
+    editBookmarkCtrl.bookmark = angular.copy(editBookmarkCtrl.editedBookmark);
+    Bookmark.updateBookmark(editBookmarkCtrl.editedBookmark);
+    returnToBookmarks();
+  }
 });
