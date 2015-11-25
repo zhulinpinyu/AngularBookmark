@@ -23,4 +23,5 @@ angular.module('categories.bookmarks',[
   });
   bookmarksCtrl.getCurrentCategoryName = Category.getCurrentCategoryName;
   bookmarksCtrl.getCurrentCategory = Category.getCurrentCategory;
+  bookmarksCtrl.deleteBookmark = Bookmark.deleteBookmark;
 });

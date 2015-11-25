@@ -51,6 +51,11 @@ angular.module('eggly.models.bookmark',[])
           });
         }
         return deferred.promise;
+      },
+      deleteBookmark: function(bookmark){
+        _.remove(bookmarks,function(b){
+          return b.id === bookmark.id;
+        });
       }
     }
   });
