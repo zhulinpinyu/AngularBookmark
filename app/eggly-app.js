@@ -73,7 +73,7 @@ angular.module('Eggly',[
      $scope.newBookmark = {
        title: '',
        url: '',
-       category: $scope.currentCategory.name
+       category: $scope.currentCategory
      };
    }
 
