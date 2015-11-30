@@ -1,0 +1,22 @@
+{
+  "name": "angular-bookmark",
+  "version": "1.0.0",
+  "description": "Thanks 👍 [https://github.com/eggheadio/egghead-angularjs-from-scratch-getting-started/tree/01-bootstrap](https://github.com/eggheadio/egghead-angularjs-from-scratch-getting-started/tree/01-bootstrap)   [https://egghead.io/series/angularjs-app-from-scratch-getting-started](https://egghead.io/series/angularjs-app-from-scratch-getting-started)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhulinpinyu/AngularBookmark.git"
+  },
+  "author": "zhulinpinyu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zhulinpinyu/AngularBookmark/issues"
+  },
+  "homepage": "https://github.com/zhulinpinyu/AngularBookmark#readme",
+  "devDependencies": {
+    "gulp": "^3.9.0"
+  }
+}
