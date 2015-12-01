@@ -1,12 +1,14 @@
-var gulp = require('gulp');
-var runSequence = require('run-sequence');
-var del = require('del');
+var gulp = require('gulp'),
+    runSequence = require('run-sequence'),
+    del = require('del'),
+    inject = require('gulp-inject');
+
 gulp.task("default",function(callback){
   runSequence("build",callback);
 });
 
 gulp.task("build",function(callback){
-  runSequence("clean","copy-build",callback);
+  runSequence("clean","copy-build","index",callback);
 });
 
 gulp.task("clean", function(callback){
@@ -38,4 +40,15 @@ gulp.task("copy-app-js",function(){
 gulp.task("copy-vendor-js",function(){
   return gulp.src("./vendor/**/*.js")
     .pipe(gulp.dest("./build/vendor"));
+});
+
+gulp.task("index",function(){
+  var tmpl_src = ["./build/assets/css/**/*.css",
+                  "./build/vendor/jquery-1.11.0.min.js",
+                  "./build/vendor/bootstrap-3.1.1.min.js",
+                  "./build/vendor/**/*.js",
+                  "./build/app/**/*.js"]
+  return gulp.src("./index.html")
+    .pipe(inject(gulp.src(tmpl_src),{ignorePath: 'build'}))
+    .pipe(gulp.dest('./build'));
 });
