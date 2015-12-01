@@ -1,15 +1,18 @@
 var gulp = require('gulp'),
     runSequence = require('run-sequence'),
     del = require('del'),
-    inject = require('gulp-inject');
+    inject = require('gulp-inject'),
+    serve = require('gulp-serve');
 
 gulp.task("default",function(callback){
-  runSequence("build",callback);
+  runSequence("build","serve",callback);
 });
 
 gulp.task("build",function(callback){
   runSequence("clean","copy-build","index",callback);
 });
+
+gulp.task("serve",serve("build"));
 
 gulp.task("clean", function(callback){
   return del(["./build"],{force: true},callback);
