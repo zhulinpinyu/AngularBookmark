@@ -13,7 +13,17 @@ gulp.task("clean", function(callback){
   return del(["./build"],{force: true},callback);
 });
 
-gulp.task("copy-build",["copy-assets", "copy-app-js","copy-vendor-js"]);
+gulp.task("copy-build",["copy-html","copy-json","copy-assets", "copy-app-js","copy-vendor-js"]);
+
+gulp.task("copy-html",function(){
+  return gulp.src("./app/**/*.html")
+  .pipe(gulp.dest("./build/app"));
+});
+
+gulp.task("copy-json",function(){
+  return gulp.src("./data/**/*.json")
+  .pipe(gulp.dest("./build/data"));
+});
 
 gulp.task("copy-assets",function(){
   return gulp.src("./assets/**/*")
