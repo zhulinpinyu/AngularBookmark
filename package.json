@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/zhulinpinyu/AngularBookmark#readme",
   "devDependencies": {
+    "del": "^2.1.0",
     "gulp": "^3.9.0",
     "run-sequence": "^1.1.5"
   }
